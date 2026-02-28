@@ -1,8 +1,9 @@
 import { Epilogue } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
-import AuthProvider from "@/components/AuthProvider";
+import AuthProvider from "@/providers/AuthProvider";
 import { Toaster } from "react-hot-toast";
+
 
 const epilogue = Epilogue({
   subsets: ["latin"],

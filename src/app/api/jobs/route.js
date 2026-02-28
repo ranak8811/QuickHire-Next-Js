@@ -36,13 +36,9 @@ export async function POST(req) {
   try {
     const session = await getServerSession(authOptions);
 
-    if (!session) {
-      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    if (!session || session.user.role !== "admin") {
+      return NextResponse.json({ error: "Access denied. Admins only." }, { status: 403 });
     }
-
-    // In a real app, you'd check for user.role === 'admin'
-    // For this task, we'll assume any logged-in user can post for simplicity 
-    // or you can restrict to a specific email if needed.
 
     const body = await req.json();
     const { title, company, location, category, description } = body;

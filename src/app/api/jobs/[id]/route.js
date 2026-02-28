@@ -27,8 +27,8 @@ export async function DELETE(req, { params }) {
     const { id } = await params;
     const session = await getServerSession(authOptions);
 
-    if (!session) {
-      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    if (!session || session.user.role !== "admin") {
+      return NextResponse.json({ error: "Access denied. Admins only." }, { status: 403 });
     }
 
     const db = await connectDB();

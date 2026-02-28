@@ -9,6 +9,9 @@ import { FcGoogle } from "react-icons/fc";
 
 const LoginPage = () => {
   const [loading, setLoading] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  
   const router = useRouter();
   const searchParams = useSearchParams();
   const callbackUrl = searchParams.get("callbackUrl") || "/";
@@ -16,10 +19,6 @@ const LoginPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-
-    const formData = new FormData(e.target);
-    const email = formData.get("email");
-    const password = formData.get("password");
 
     try {
       const res = await signIn("credentials", {
@@ -42,12 +41,40 @@ const LoginPage = () => {
     }
   };
 
+  const handleQuickLogin = (type) => {
+    if (type === "user") {
+      setEmail("alex@gmail.com");
+      setPassword("123");
+    } else if (type === "admin") {
+      setEmail("admin@gmail.com");
+      setPassword("456");
+    }
+  };
+
   return (
     <div className="min-h-[80vh] flex items-center justify-center bg-light-gray py-12 px-4">
       <div className="max-w-md w-full bg-white rounded-2xl shadow-xl p-8 space-y-6 border border-gray/5">
         <div className="text-center">
           <h2 className="text-3xl font-bold text-dark-blue">Welcome Back</h2>
           <p className="text-gray mt-2">Login to your QuickHire account</p>
+        </div>
+
+        {/* Quick Login Buttons */}
+        <div className="flex gap-2 mb-4">
+          <button 
+            type="button"
+            onClick={() => handleQuickLogin("user")}
+            className="flex-1 text-xs font-bold py-2 bg-blue-50 text-blue-600 border border-blue-100 rounded-lg hover:bg-blue-100 transition-all"
+          >
+            User Login (Quick)
+          </button>
+          <button 
+            type="button"
+            onClick={() => handleQuickLogin("admin")}
+            className="flex-1 text-xs font-bold py-2 bg-red-50 text-red-600 border border-red-100 rounded-lg hover:bg-red-100 transition-all"
+          >
+            Admin Login (Quick)
+          </button>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-4">
@@ -57,6 +84,8 @@ const LoginPage = () => {
               name="email"
               type="email"
               required
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               className="w-full px-4 py-3 rounded-lg border border-gray/20 focus:border-primary outline-none transition-all"
               placeholder="john@example.com"
             />
@@ -70,6 +99,8 @@ const LoginPage = () => {
               name="password"
               type="password"
               required
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
               className="w-full px-4 py-3 rounded-lg border border-gray/20 focus:border-primary outline-none transition-all"
               placeholder="••••••••"
             />

@@ -1,36 +1,91 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# QuickHire - Simple Job Board Application
 
-## Getting Started
+QuickHire is a modern, responsive job board application built with Next.js. It allows users to browse job listings, search and filter by category or location, view job details, and submit applications. It also features a robust Admin Dashboard for managing job listings with role-based access control.
 
-First, run the development server:
+## 🚀 Live Demo
+- **Frontend:** [https://quick-hire-demo.vercel.app](#)
+- **Admin Dashboard:** [https://quick-hire-demo.vercel.app/admin](#)
+- **Loom/Video Demo:** [https://loom.com/share/demo-link](#)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## ✨ Features
+
+### Frontend (User)
+- **Job Listings:** Browse all available jobs in a clean, responsive grid.
+- **Search & Filter:** Search by job title and filter by category or location.
+- **Job Details:** View full job descriptions and requirements.
+- **Job Application:** Submit applications with name, email, resume link, and cover note.
+- **Authentication:** Secure login and registration (Credentials & Google OAuth).
+- **Responsive UI:** Fully optimized for Mobile, Tablet, and Desktop.
+
+### Admin Dashboard
+- **Protected Access:** Only users with the `admin` role can access the dashboard.
+- **Job Management:** Add new job listings and delete existing ones.
+- **Quick Insights:** View active job counts and manage listings in one place.
+
+## 🛠️ Tech Stack
+- **Framework:** Next.js 15+ (App Router)
+- **Styling:** Tailwind CSS & DaisyUI
+- **Database:** MongoDB
+- **Authentication:** NextAuth.js
+- **Icons:** React Icons
+- **Notifications:** React Hot Toast
+
+## ⚙️ Environment Variables
+
+Create a `.env.local` file in the root directory and add the following:
+
+```env
+# Database
+MONGO_URI=your_mongodb_connection_string
+DB_NAME=quick-hire-db
+
+# NextAuth Configuration
+NEXTAUTH_SECRET=your_nextauth_secret
+NEXTAUTH_URL=http://localhost:3000
+
+# Google OAuth (Optional for Google Login)
+GOOGLE_CLIENT_ID=your_google_client_id
+GOOGLE_CLIENT_SECRET=your_google_client_secret
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🏃 Local Setup Instructions
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/your-username/quick-hire.git
+   cd quick-hire
+   ```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
 
-## Learn More
+3. **Set up Environment Variables:**
+   Follow the "Environment Variables" section above to configure your `.env.local` file.
 
-To learn more about Next.js, take a look at the following resources:
+4. **Run the development server:**
+   ```bash
+   npm run dev
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+5. **Access the application:**
+   Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🔑 Quick Login (For Testing)
+On the login page, you can use the "Quick Login" buttons for:
+- **User:** `alex@gmail.com` / `123`
+- **Admin:** `admin@gmail.com` / `456`
 
-## Deploy on Vercel
+## 📁 Project Structure
+```text
+src/
+├── app/            # Next.js App Router (Pages & API)
+├── components/     # Reusable UI components
+├── lib/            # Database connection and Auth options
+├── providers/      # Context providers (Auth, etc.)
+└── tmp_designs/    # Design assets and assessment requirements
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📝 License
+This project is for technical assessment purposes.

@@ -1,6 +1,7 @@
 import { Epilogue } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 import AuthProvider from "@/providers/AuthProvider";
 import { Toaster } from "react-hot-toast";
 
@@ -23,6 +24,7 @@ export default function RootLayout({ children }) {
           <Toaster position="top-center" />
           <Navbar />
           {children}
+          <Footer />
         </AuthProvider>
       </body>
     </html>

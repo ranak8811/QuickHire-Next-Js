@@ -17,6 +17,7 @@ export async function POST(req) {
       name,
       email,
       password: hashedPassword,
+      role: "user", // Default role
       provider: "credentials",
       createdAt: new Date(),
     };

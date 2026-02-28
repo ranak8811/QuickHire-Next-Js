@@ -18,7 +18,7 @@ export const authOptions = {
         const user = await db.collection("users").findOne({ email: credentials.email });
 
         if (user && bcrypt.compareSync(credentials.password, user.password)) {
-          return { id: user._id, name: user.name, email: user.email };
+          return { id: user._id, name: user.name, email: user.email, role: user.role || "user" };
         }
         return null;
       },
@@ -38,6 +38,7 @@ export const authOptions = {
             name: user.name,
             email: user.email,
             image: user.image,
+            role: "user", // Default for Google users
             provider: "google",
             createdAt: new Date(),
           });
@@ -45,9 +46,17 @@ export const authOptions = {
       }
       return true;
     },
+    async jwt({ token, user }) {
+      if (user) {
+        token.id = user.id;
+        token.role = user.role;
+      }
+      return token;
+    },
     async session({ session, token }) {
       if (token) {
-        session.user.id = token.sub;
+        session.user.id = token.id;
+        session.user.role = token.role;
       }
       return session;
     },

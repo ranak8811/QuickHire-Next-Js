@@ -1,13 +1,13 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useState, Suspense } from "react";
 import { signIn } from "next-auth/react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { toast } from "react-hot-toast";
 import { FcGoogle } from "react-icons/fc";
 
-const LoginPage = () => {
+const LoginForm = () => {
   const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -133,13 +133,25 @@ const LoginPage = () => {
         </button>
 
         <p className="text-center text-gray">
-          Don't have an account?{" "}
+          Don&apos;t have an account?{" "}
           <Link href="/register" className="text-primary font-bold hover:underline">
             Register
           </Link>
         </p>
       </div>
     </div>
+  );
+};
+
+const LoginPage = () => {
+  return (
+    <Suspense fallback={
+      <div className="min-h-[80vh] flex items-center justify-center">
+        <span className="loading loading-spinner loading-lg text-primary"></span>
+      </div>
+    }>
+      <LoginForm />
+    </Suspense>
   );
 };
 

@@ -3,13 +3,15 @@
 QuickHire is a modern, responsive job board application built with Next.js. It allows users to browse job listings, search and filter by category or location, view job details, and submit applications. It also features a robust Admin Dashboard for managing job listings with role-based access control.
 
 ## 🚀 Live Demo
-- **Frontend:** [https://quick-hire-demo.vercel.app](#)
-- **Admin Dashboard:** [https://quick-hire-demo.vercel.app/admin](#)
-- **Loom/Video Demo:** [https://loom.com/share/demo-link](#)
+
+- **Frontend:** [QuickHire Live on Vercel](https://quick-hire-rho.vercel.app)
+- **Admin Dashboard:** [QuickHire Live on Vercel - Dashboard](https://quick-hire-rho.vercel.app/admin)
+- **Video Demo:** [https://loom.com/share/demo-link](#)
 
 ## ✨ Features
 
 ### Frontend (User)
+
 - **Job Listings:** Browse all available jobs in a clean, responsive grid.
 - **Search & Filter:** Search by job title and filter by category or location.
 - **Job Details:** View full job descriptions and requirements.
@@ -18,11 +20,13 @@ QuickHire is a modern, responsive job board application built with Next.js. It a
 - **Responsive UI:** Fully optimized for Mobile, Tablet, and Desktop.
 
 ### Admin Dashboard
+
 - **Protected Access:** Only users with the `admin` role can access the dashboard.
 - **Job Management:** Add new job listings and delete existing ones.
 - **Quick Insights:** View active job counts and manage listings in one place.
 
 ## 🛠️ Tech Stack
+
 - **Framework:** Next.js 15+ (App Router)
 - **Styling:** Tailwind CSS & DaisyUI
 - **Database:** MongoDB
@@ -51,12 +55,14 @@ GOOGLE_CLIENT_SECRET=your_google_client_secret
 ## 🏃 Local Setup Instructions
 
 1. **Clone the repository:**
+
    ```bash
-   git clone https://github.com/your-username/quick-hire.git
-   cd quick-hire
+   git clone https://github.com/ranak8811/QuickHire-Next-Js.git
+   cd QuickHire-Next-Js
    ```
 
 2. **Install dependencies:**
+
    ```bash
    npm install
    ```
@@ -65,6 +71,7 @@ GOOGLE_CLIENT_SECRET=your_google_client_secret
    Follow the "Environment Variables" section above to configure your `.env.local` file.
 
 4. **Run the development server:**
+
    ```bash
    npm run dev
    ```
@@ -73,11 +80,14 @@ GOOGLE_CLIENT_SECRET=your_google_client_secret
    Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ## 🔑 Quick Login (For Testing)
+
 On the login page, you can use the "Quick Login" buttons for:
+
 - **User:** `alex@gmail.com` / `123`
 - **Admin:** `admin@gmail.com` / `456`
 
 ## 📁 Project Structure
+
 ```text
 src/
 ├── app/            # Next.js App Router (Pages & API)
@@ -88,4 +98,5 @@ src/
 ```
 
 ## 📝 License
+
 This project is for technical assessment purposes.

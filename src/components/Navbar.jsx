@@ -1,7 +1,12 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
+import { useSession, signOut } from "next-auth/react";
 
 const Navbar = () => {
+  const { data: session } = useSession();
+
   return (
     <nav className="navbar bg-base-100 px-4 md:px-16 py-4">
       <div className="navbar-start">
@@ -60,15 +65,31 @@ const Navbar = () => {
         </div>
       </div>
       <div className="navbar-end gap-2">
-        <Link href="/login" className="btn btn-ghost text-primary font-bold">
-          Login
-        </Link>
-        <Link
-          href="/signup"
-          className="btn bg-primary text-white hover:bg-primary/90 font-bold px-6"
-        >
-          Sign Up
-        </Link>
+        {session ? (
+          <div className="flex items-center gap-4">
+            <span className="font-medium text-gray">
+              Hi, {session.user?.name || session.user?.email}
+            </span>
+            <button
+              onClick={() => signOut()}
+              className="btn btn-ghost text-primary font-bold"
+            >
+              Logout
+            </button>
+          </div>
+        ) : (
+          <>
+            <Link href="/login" className="btn btn-ghost text-primary font-bold">
+              Login
+            </Link>
+            <Link
+              href="/register"
+              className="btn bg-primary text-white hover:bg-primary/90 font-bold px-6"
+            >
+              Sign Up
+            </Link>
+          </>
+        )}
       </div>
     </nav>
   );

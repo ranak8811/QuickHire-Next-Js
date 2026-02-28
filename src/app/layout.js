@@ -1,6 +1,8 @@
 import { Epilogue } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
+import AuthProvider from "@/components/AuthProvider";
+import { Toaster } from "react-hot-toast";
 
 const epilogue = Epilogue({
   subsets: ["latin"],
@@ -16,8 +18,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" data-theme="light">
       <body className={`${epilogue.className} antialiased`}>
-        <Navbar />
-        {children}
+        <AuthProvider>
+          <Toaster position="top-center" />
+          <Navbar />
+          {children}
+        </AuthProvider>
       </body>
     </html>
   );

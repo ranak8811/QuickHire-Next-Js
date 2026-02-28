@@ -6,7 +6,6 @@ QuickHire is a modern, responsive job board application built with Next.js. It a
 
 - **Frontend:** [QuickHire Live on Vercel](https://quick-hire-rho.vercel.app)
 - **Admin Dashboard:** [QuickHire Live on Vercel - Dashboard](https://quick-hire-rho.vercel.app/admin)
-- **Video Demo:** [https://loom.com/share/demo-link](#)
 
 ## ✨ Features
 

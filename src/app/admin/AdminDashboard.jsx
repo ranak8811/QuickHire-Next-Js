@@ -99,30 +99,30 @@ const AdminDashboard = () => {
       if (res.ok) {
         toast.success("Job posted successfully!");
         e.target.reset();
-        fetchJobs(); // Refresh the list
+        fetchJobs();
       } else {
         const data = await res.json();
         toast.error(data.error || "Failed to post job");
       }
-    } catch (error) {
+      } catch (error) {
       toast.error("Something went wrong");
-    } finally {
+      } finally {
       setSubmitting(false);
-    }
-  };
+      }
+      };
 
-  if (status === "loading" || loading) {
-    return (
+      if (status === "loading" || loading) {
+      return (
       <div className="flex justify-center items-center min-h-screen">
         <span className="loading loading-spinner loading-lg text-primary"></span>
       </div>
-    );
-  }
+      );
+      }
 
-  // Final role check to prevent flash of content
-  if (session?.user?.role !== "admin") {
-    return null;
-  }
+      if (session?.user?.role !== "admin") {
+      return null;
+      }
+
 
   return (
     <div className="bg-light-gray min-h-screen py-12 px-4 md:px-16">

@@ -35,7 +35,7 @@ const HomePage = () => {
       try {
         const res = await fetch("/api/jobs");
         const data = await res.json();
-        setFeaturedJobs(data.slice(0, 8)); // Show first 8 jobs as featured
+        setFeaturedJobs(data.slice(0, 8));
       } catch (error) {
         console.error("Error fetching featured jobs:", error);
       } finally {

@@ -10,7 +10,6 @@ const JobsListContent = () => {
   const [jobs, setJobs] = useState([]);
   const [loading, setLoading] = useState(true);
   
-  // Initialize state from search params if they exist
   const [search, setSearch] = useState(searchParams.get("search") || "");
   const [category, setCategory] = useState(searchParams.get("category") || "");
   const [location, setLocation] = useState(searchParams.get("location") || "");

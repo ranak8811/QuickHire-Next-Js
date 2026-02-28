@@ -3,7 +3,6 @@ import { NextResponse } from "next/server";
 import { getServerSession } from "next-auth/next";
 import { authOptions } from "@/lib/authOptions";
 
-// GET /api/applications/user - Fetch applications for the logged-in user
 export async function GET(req) {
   try {
     const session = await getServerSession(authOptions);
@@ -14,7 +13,6 @@ export async function GET(req) {
 
     const db = await connectDB();
     
-    // Aggregate to get application details along with job details
     const applications = await db.collection("applications").aggregate([
       {
         $match: { email: session.user.email }

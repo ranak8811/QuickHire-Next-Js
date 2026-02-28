@@ -12,7 +12,6 @@ const Banner = () => {
   const handleSearch = () => {
     const params = new URLSearchParams();
     if (search) params.append("search", search);
-    // If location is "All Location", we don't append it to let the filter show all
     if (location && location !== "All Location") params.append("location", location);
     
     router.push(`/find-jobs?${params.toString()}`);

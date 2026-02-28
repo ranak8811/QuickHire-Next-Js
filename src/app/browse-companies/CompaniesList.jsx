@@ -8,7 +8,6 @@ import { FaBuilding } from "react-icons/fa";
 const CompaniesList = () => {
   const [search, setSearch] = useState("");
 
-  // Mock data for companies
   const companies = [
     {
       id: 1,

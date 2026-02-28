@@ -1,5 +1,5 @@
 export const ApplicationSchema = {
-  job_id: String, // Reference to Job ID
+  job_id: String,
   name: String,
   email: String,
   resume_link: String,

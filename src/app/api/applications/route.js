@@ -2,13 +2,11 @@ import { connectDB } from "@/lib/mongodb";
 import { NextResponse } from "next/server";
 import { ObjectId } from "mongodb";
 
-// POST /api/applications - Submit a job application
 export async function POST(req) {
   try {
     const body = await req.json();
     const { job_id, name, email, resume_link, cover_note } = body;
 
-    // 1. Basic Validation: Required Fields
     if (!job_id || !name || !email || !resume_link || !cover_note) {
       return NextResponse.json(
         { error: "All fields are required" },
@@ -16,7 +14,6 @@ export async function POST(req) {
       );
     }
 
-    // 2. Email Validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
       return NextResponse.json(
@@ -25,7 +22,6 @@ export async function POST(req) {
       );
     }
 
-    // 3. URL Validation for Resume Link
     try {
       new URL(resume_link);
     } catch (e) {
@@ -37,7 +33,6 @@ export async function POST(req) {
 
     const db = await connectDB();
 
-    // 4. Verify Job Existence
     try {
       const job = await db.collection("jobs").findOne({ _id: new ObjectId(job_id) });
       if (!job) {
@@ -53,7 +48,6 @@ export async function POST(req) {
       );
     }
 
-    // 5. Save Application
     const result = await db.collection("applications").insertOne({
       job_id: new ObjectId(job_id),
       name,

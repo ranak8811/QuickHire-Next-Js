@@ -38,7 +38,7 @@ export const authOptions = {
             name: user.name,
             email: user.email,
             image: user.image,
-            role: "user", // Default for Google users
+            role: "user",
             provider: "google",
             createdAt: new Date(),
           });

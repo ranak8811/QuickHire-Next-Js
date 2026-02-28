@@ -3,7 +3,6 @@ import { NextResponse } from "next/server";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/authOptions";
 
-// GET /api/jobs - Fetch all jobs with search/filter
 export async function GET(req) {
   try {
     const { searchParams } = new URL(req.url);
@@ -31,7 +30,6 @@ export async function GET(req) {
   }
 }
 
-// POST /api/jobs - Create a new job (Admin only)
 export async function POST(req) {
   try {
     const session = await getServerSession(authOptions);

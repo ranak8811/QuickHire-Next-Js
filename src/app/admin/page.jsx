@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { toast } from "react-hot-toast";
+import Swal from "sweetalert2";
 import { FiPlus, FiTrash2, FiBriefcase, FiMapPin, FiTag } from "react-icons/fi";
 
 const AdminDashboard = () => {
@@ -44,19 +45,34 @@ const AdminDashboard = () => {
   };
 
   const handleDelete = async (id) => {
-    if (!confirm("Are you sure you want to delete this job listing?")) return;
+    const result = await Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#4640DE",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!"
+    });
 
-    try {
-      const res = await fetch(`/api/jobs/${id}`, { method: "DELETE" });
-      if (res.ok) {
-        toast.success("Job deleted successfully");
-        setJobs(jobs.filter(job => job._id !== id));
-      } else {
-        const data = await res.json();
-        toast.error(data.error || "Failed to delete job");
+    if (result.isConfirmed) {
+      try {
+        const res = await fetch(`/api/jobs/${id}`, { method: "DELETE" });
+        if (res.ok) {
+          Swal.fire({
+            title: "Deleted!",
+            text: "Your job listing has been deleted.",
+            icon: "success",
+            confirmButtonColor: "#4640DE",
+          });
+          setJobs(jobs.filter(job => job._id !== id));
+        } else {
+          const data = await res.json();
+          toast.error(data.error || "Failed to delete job");
+        }
+      } catch (error) {
+        toast.error("Something went wrong");
       }
-    } catch (error) {
-      toast.error("Something went wrong");
     }
   };
 

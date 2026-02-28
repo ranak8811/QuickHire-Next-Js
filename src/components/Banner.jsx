@@ -15,7 +15,7 @@ const Banner = () => {
           <h1 className="text-5xl md:text-[72px] font-bold text-dark-blue leading-[1.1]">
             Discover <br className="hidden md:block" />
             more than <br className="hidden md:block" />
-            <span className="text-secondary relative">
+            <span className="text-[#26A4FF] relative">
               5000+ Jobs
               <svg className="absolute -bottom-4 left-0 w-full" height="16" viewBox="0 0 320 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M2 12C60 2 120 2 180 12C240 2 300 2 318 12" stroke="#26A4FF" strokeWidth="4" strokeLinecap="round" />

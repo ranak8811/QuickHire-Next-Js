@@ -1,5 +1,10 @@
 import Link from "next/link";
-import { FaFacebookF, FaInstagram, FaTwitter, FaLinkedinIn } from "react-icons/fa";
+import {
+  FaFacebookF,
+  FaInstagram,
+  FaTwitter,
+  FaLinkedinIn,
+} from "react-icons/fa";
 
 const Footer = () => {
   return (
@@ -14,7 +19,8 @@ const Footer = () => {
             <span className="text-2xl font-bold tracking-tight">QuickHire</span>
           </div>
           <p className="text-[#D6DDEB] text-base leading-relaxed max-w-xs">
-            Great platform for the job seeker that searching for new career heights and passionate about startups.
+            Great platform for the job seeker that searching for new career
+            heights and passionate about startups.
           </p>
         </div>
 
@@ -22,11 +28,31 @@ const Footer = () => {
         <div>
           <h4 className="text-xl font-bold mb-6">About</h4>
           <ul className="space-y-4 text-[#D6DDEB]">
-            <li><Link href="#" className="hover:text-white transition-colors">Companies</Link></li>
-            <li><Link href="#" className="hover:text-white transition-colors">Pricing</Link></li>
-            <li><Link href="#" className="hover:text-white transition-colors">Terms</Link></li>
-            <li><Link href="#" className="hover:text-white transition-colors">Advice</Link></li>
-            <li><Link href="#" className="hover:text-white transition-colors">Privacy Policy</Link></li>
+            <li>
+              <Link href="#" className="hover:text-white transition-colors">
+                Companies
+              </Link>
+            </li>
+            <li>
+              <Link href="#" className="hover:text-white transition-colors">
+                Pricing
+              </Link>
+            </li>
+            <li>
+              <Link href="#" className="hover:text-white transition-colors">
+                Terms
+              </Link>
+            </li>
+            <li>
+              <Link href="#" className="hover:text-white transition-colors">
+                Advice
+              </Link>
+            </li>
+            <li>
+              <Link href="#" className="hover:text-white transition-colors">
+                Privacy Policy
+              </Link>
+            </li>
           </ul>
         </div>
 
@@ -34,10 +60,26 @@ const Footer = () => {
         <div>
           <h4 className="text-xl font-bold mb-6">Resources</h4>
           <ul className="space-y-4 text-[#D6DDEB]">
-            <li><Link href="#" className="hover:text-white transition-colors">Help Docs</Link></li>
-            <li><Link href="#" className="hover:text-white transition-colors">Guide</Link></li>
-            <li><Link href="#" className="hover:text-white transition-colors">Updates</Link></li>
-            <li><Link href="#" className="hover:text-white transition-colors">Contact Us</Link></li>
+            <li>
+              <Link href="#" className="hover:text-white transition-colors">
+                Help Docs
+              </Link>
+            </li>
+            <li>
+              <Link href="#" className="hover:text-white transition-colors">
+                Guide
+              </Link>
+            </li>
+            <li>
+              <Link href="#" className="hover:text-white transition-colors">
+                Updates
+              </Link>
+            </li>
+            <li>
+              <Link href="#" className="hover:text-white transition-colors">
+                Contact Us
+              </Link>
+            </li>
           </ul>
         </div>
 
@@ -48,9 +90,9 @@ const Footer = () => {
             The latest job news, articles, sent to your inbox weekly.
           </p>
           <div className="flex flex-col sm:flex-row gap-2">
-            <input 
-              type="email" 
-              placeholder="Email Address" 
+            <input
+              type="email"
+              placeholder="Write email"
               className="bg-white px-4 py-3 text-[#202430] outline-none flex-1 min-w-0"
             />
             <button className="bg-primary hover:bg-primary/90 text-white font-bold px-6 py-3 transition-all">
@@ -66,16 +108,28 @@ const Footer = () => {
           2026 @ QuickHire. All rights reserved.
         </p>
         <div className="flex gap-4">
-          <Link href="#" className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary transition-all text-[#D6DDEB] hover:text-white">
+          <Link
+            href="#"
+            className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary transition-all text-[#D6DDEB] hover:text-white"
+          >
             <FaFacebookF size={14} />
           </Link>
-          <Link href="#" className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary transition-all text-[#D6DDEB] hover:text-white">
+          <Link
+            href="#"
+            className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary transition-all text-[#D6DDEB] hover:text-white"
+          >
             <FaInstagram size={14} />
           </Link>
-          <Link href="#" className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary transition-all text-[#D6DDEB] hover:text-white">
+          <Link
+            href="#"
+            className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary transition-all text-[#D6DDEB] hover:text-white"
+          >
             <FaTwitter size={14} />
           </Link>
-          <Link href="#" className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary transition-all text-[#D6DDEB] hover:text-white">
+          <Link
+            href="#"
+            className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary transition-all text-[#D6DDEB] hover:text-white"
+          >
             <FaLinkedinIn size={14} />
           </Link>
         </div>

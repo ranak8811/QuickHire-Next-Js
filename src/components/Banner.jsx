@@ -1,6 +1,23 @@
+"use client";
+
 import Image from 'next/image';
+import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 const Banner = () => {
+  const [search, setSearch] = useState("");
+  const [location, setLocation] = useState("All Location");
+  const router = useRouter();
+
+  const handleSearch = () => {
+    const params = new URLSearchParams();
+    if (search) params.append("search", search);
+    // If location is "All Location", we don't append it to let the filter show all
+    if (location && location !== "All Location") params.append("location", location);
+    
+    router.push(`/find-jobs?${params.toString()}`);
+  };
+
   return (
     <div className="bg-white">
       <section className="px-4 md:px-16 py-12 md:py-24 flex flex-col md:flex-row items-center gap-10 relative overflow-hidden">
@@ -32,7 +49,13 @@ const Banner = () => {
               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-dark-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
               </svg>
-              <input type="text" placeholder="Job title or keyword" className="bg-transparent outline-none text-dark-blue w-full font-medium" />
+              <input 
+                type="text" 
+                placeholder="Job title or keyword" 
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+                className="bg-transparent outline-none text-dark-blue w-full font-medium" 
+              />
             </div>
             
             <div className="flex items-center gap-3 flex-[0.8] w-full px-4 py-3 md:py-4">
@@ -40,14 +63,24 @@ const Banner = () => {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
               </svg>
-              <select className="bg-transparent outline-none text-dark-blue w-full appearance-none font-medium">
-                <option>Florence, Italy</option>
-                <option>Remote</option>
-                <option>New York, USA</option>
+              <select 
+                value={location}
+                onChange={(e) => setLocation(e.target.value)}
+                className="bg-transparent outline-none text-dark-blue w-full appearance-none font-medium cursor-pointer"
+              >
+                <option value="All Location">All Location</option>
+                <option value="Florence, Italy">Florence, Italy</option>
+                <option value="Remote">Remote</option>
+                <option value="New York, USA">New York, USA</option>
+                <option value="San Francisco, US">San Francisco, US</option>
+                <option value="London, UK">London, UK</option>
               </select>
             </div>
             
-            <button className="btn bg-primary text-white hover:bg-primary/90 w-full md:w-auto px-10 h-14 md:h-16 rounded-lg text-lg font-bold border-none">
+            <button 
+              onClick={handleSearch}
+              className="btn bg-primary text-white hover:bg-primary/90 w-full md:w-auto px-10 h-14 md:h-16 rounded-lg text-lg font-bold border-none"
+            >
               Search my job
             </button>
           </div>

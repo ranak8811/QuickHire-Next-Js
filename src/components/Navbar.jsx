@@ -37,6 +37,11 @@ const Navbar = () => {
             <li>
               <Link href="/browse-companies">Browse Companies</Link>
             </li>
+            {session && (
+              <li>
+                <Link href="/my-applications">My Applications</Link>
+              </li>
+            )}
             {session?.user?.role === "admin" && (
               <li>
                 <Link href="/admin">Admin</Link>
@@ -67,6 +72,14 @@ const Navbar = () => {
           >
             Browse Companies
           </Link>
+          {session && (
+            <Link
+              href="/my-applications"
+              className="text-[#7C8493] hover:text-primary font-medium"
+            >
+              My Applications
+            </Link>
+          )}
           {session?.user?.role === "admin" && (
             <Link
               href="/admin"
